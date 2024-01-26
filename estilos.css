@@ -2,12 +2,9 @@
 .principal{
     display: grid;
     gap: 14px;
-    /*grid-template-columns: 1fr 1fr 1fr;*/
     grid-template-areas:
-        /*"header header header"*/
         "main main sidebar"
         "footer footer footer";
-    
 }
 
 .principal header{
@@ -15,18 +12,21 @@
     grid-column: 1/-1;
     grid-area: header;
 }
+
 .principal footer{
     background: yellow;
-    grid-column: 1/-1;
     grid-area: footer;
 }
+
 .principal main{
     grid-column: span 2;
     background-color: lightgray;
     grid-area: main;
     display: grid;
     justify-items: center;
+    height: 80vh;
 }
+
 .principal aside{
     background-color: red;
     grid-area: sidebar;
@@ -34,7 +34,7 @@
     justify-items: center;
     
 }
-img{
+main img{
     width: 100px;
     height:100px;
 }
@@ -50,7 +50,7 @@ img{
 }
 
 button{
-    border:none;
+    border:2px solid rgb(43, 78, 124);
     background-color: lightgrey;
     color: rgb(43, 78, 124);
     padding: 15px 32px;
@@ -73,4 +73,13 @@ button{
 .copiar{
     color: white;
     background-color: rgb(43, 78, 124);
+}
+
+.texto1{
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    background-color: lightgray;
+    resize: none;
 }
