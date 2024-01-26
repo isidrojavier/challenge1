@@ -28,7 +28,7 @@
 }
 
 .principal aside{
-    background-color: red;
+    background-color: lightgray;
     grid-area: sidebar;
     display: grid;
     justify-items: center;
@@ -45,7 +45,8 @@ main img{
     width: 60%;
     border-radius: 10px;
     gap: 5px;
-
+    height: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
  
 }
 
@@ -82,4 +83,8 @@ button{
     border: 2px solid #ccc;
     background-color: lightgray;
     resize: none;
+}
+
+.imglogo{
+    width: 100%;
 }
