@@ -1,27 +1,79 @@
-
-.principal{
-    display: grid;
-    gap: 14px;
-    grid-template-areas:
-        "main main sidebar"
-        "footer footer footer";
+*{
+    box-sizing: border-box;
+}
+/* contenedor principal contiene a contenido y resultado */
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.principal header{
-    background: blue;
-    grid-column: 1/-1;
-    grid-area: header;
+/* footer */
+footer{
+    flex: 100%;
+    background-color: #F3F5FC;
+    text-align: center;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 12px;
 }
 
-.principal footer{
-    background: yellow;
-    grid-area: footer;
+header{
+    flex: 100%;
+    background-color: #F3F5FC;
+    text-align: center;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
 }
+
+/* contenido es donde van el logo, el textarea y los dos botones de encriptacion */
+.contenido{
+    background-color: #F3F5FC;;
+    padding: 10px;
+    flex: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.resultado{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F3F5FC;
+    padding: 10px;
+    flex: 35%;
+}
+
+/* media query para que sea responsive */
+@media(max-width:800px){
+    .contenedor{
+        /*flex-direction: column;*/
+    }
+    .contenido, .resultado{
+        flex: 100%;
+    }
+}
+
+/* Le digo que la capa que contiene la imagen logo se vea como flex y se alineen a la izquierda todos sus elementos
+    seguro que se puede hacer de otra forma, pero es la forma más rápida que se me ha ocurrido en estos momentos */
+.logo{
+    display:flex;
+    align-items: left;
+
+}
+
+.logo img{
+    width: 80px;
+    height: 80px;
+}
+
+/* Estilo de los botones */
 
 button{
-    border:2px solid rgb(43, 78, 124);
-    background-color: lightgrey;
-    color: rgb(43, 78, 124);
+    border: 2px solid rgb(43,78,124);
+    background-color: lightgray;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -30,76 +82,178 @@ button{
     margin: 4px 2px;
     width: 200px;
     height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 10px;    
 }
 
-/* inicio todas las cosas del main*/
-.principal main{
-    grid-column: span 2;
-    background-color: lightgray;
-    grid-area: main;
-    display: grid;
-    justify-items: center;
-    height: 80vh;
+/* Un botón es de otro color, encriptar, así que he dado estilo
+    a todos los botones igual, menos a uno que es diferente y lo
+    hago aquí */
+
+#btencriptar{
+    color: lightgray;
+    background-color: rgb(43,78,124);
 }
 
-main img{
-    width: 100px;
-    height:100px;
-}
 
-.encriptar{
-    color: lightgrey;
-    background-color: rgb(43, 78, 124);
-}
-
-.texto1{
-    width: 500px;
+/* Estilo a los textarea */
+#texto1{
+    width: 80%;
     height: 400px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    background-color: lightgray;
+    background-color: #F3F5FC;
     resize: none;
-}
-
-.imglogo{
-    width: 100%;
-}
-/* fin todas las cosas del main*/
-/* inicio todas las cosas del aside*/
-.principal aside{
-    background-color: lightgray;
-    grid-area: sidebar;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenido{
-    display: grid;
-    justify-items: center;
-    background-color: aquamarine;
-    width: 60%;
     border-radius: 10px;
-    gap: 5px;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
+    /*overflow-y: scroll;*/
+}
+
+.capa{
+    /*border: 2px solid black;*/
+    background-color: white;
+    width: 300px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.25);
+    margin: 0 auto;
+    /*display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;*/
+
+}
+
+.resultado img{
+    width:100%;
+}
+
+.texto2{
+    display: none;
+}
+#btcopiar{
+    display: none;
+    margin: 0 auto;
+}
+
+main{
+    width: 70%;
     height: 80%;
-    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.3), 0 6px 20px 2px rgba(0,0,0,0.25);
- 
+    display: grid;
+    margin: 0 auto;
 }
 
-.copiar{
+.botones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#texto2{
+    width: 80%;
+    height: 400px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    background-color: #F3F5FC;
+    resize: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
+}
+
+.aviso{
+    font-size: 12px;
+    text-align: center;
+}
+span{
+    color: rgb(43,78,124);
+}
+
+.info{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.info p{
+    font-size: 14px;
+}
+
+
+/*-------------------- Estilos para la ventana modal -----------------------*/
+
+/* Fondo de la ventana modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1; /* por encima de todo */
+    padding-top: 100px; /* localización de la capa */
+    left: 0;
+    top: 0;
+    width: 100%; /* anchura y altura total, sino parecería raro */
+    height: 100%; 
+    overflow: auto; /* por si fuera necesario activamos el overflow */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Conenido de la ventana modal */
+  .contenidoModal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Añadimos animación al contenido de la ventana modal */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* Botón de cerrar */
+  .cerrar {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .cerrar:hover, .cerrar:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .encabezadoModal {
+    padding: 2px 16px;
+    background-color: #5cb85c;
     color: white;
-    background-color: rgb(43, 78, 124);
+  }
+  
+  .cuerpoModal {
+    padding: 2px 16px;
+    text-align: center;
+    font-family: 'Times New Roman, Times, serif';
 }
 
-/* fin todas las cosas del aside*/
+.encabezadoModal span{
+    color: red;
+}
+  
 
-
-
-
-
-
-
-
+  

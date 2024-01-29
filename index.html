@@ -1,27 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina principal</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <title>Encriptador html-css-javascript</title>
     <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="app.js"></script>
+
+   
+
+
+
 </head>
 <body>
-    <section class="principal">
-        <main>
-            <div class="imglogo"><img src="Logo.svg"></div>
-            <textarea class="texto1" name="texto1" placeholder="Introduce texto"></textarea>
-            <div class="botones"><button class="encriptar" name="encriptar">Encriptar</button>
-            <button class="desencriptar" name="desencriptar">Desencriptar</button></div>
-        </main>
-        <aside>
-            <div class="contenido">
-                <div class="imagenmu"><img src="Muñeco.svg"></div>
-                <div class="texto2"><textarea name="texto2"></textarea></div>
-                <div class="btcopiar"><button class="copiar" name="copiar">Copiar</button></div>
+    <main class="contenedor">
+        <header>
+            <h2>ENCRIPTADOR HTML-CSS-JAVASCRIPT</h2>
+        </header>
+        <section class="contenido">
+            <div class="logo"><img src="img/logo.svg"></div>
+            <div class="texto1"><textarea id="texto1" placeholder="introduce codigo"></textarea></div>
+            <div class="aviso"><p><span class="material-icons">error</span>Sólo letras minúsculas y sin acentos</p></div>
+            <div class="botones">
+                <button id="btencriptar" onclick="encriptar()">Encriptar</button>
+                <button id="btdesencriptar" onclick="desencriptar()">Desencriptar</button>
+                <button id="btlimpiar" onclick="limpiar()">Limpiar</button>
+            </div>
+        </section>
+        <aside class="resultado">
+            <div class="capa">
+                <div class="muneco" id="muneco"><img src="img/muneco.svg"></div>
+                <div class="info" id="info">
+                    <h4>Ningún mensaje encontrado</h4>
+                    <p>Ingresa el texto que desees encriptar o desencriptar</p>
+                </div>
+                <!--la verdad es que estoy hasta las narices del css, así que esto es un apaño para bajar la capa
+                ya que lo he intentado con padding, margin etc... y no me va -->
+                <div class="relleno"> <br/>  </div>
+                <div class="texto2" id="texto3"><textarea id="texto2" readonly></textarea></div>
+                <button id="btcopiar" onclick="copiar('texto2')">Copiar</button></div>
             </div>
         </aside>
-        <footer>&copy; CopyRight Isidro Javier</footer>
-    </section>
+        <footer>
+            <p><span class="material-icons">
+                attribution
+                </span>Creative Commons Isidro Javier</p>
+        </footer>
+    </main>
+
+   
+<!-- La ventana modal -->
+<div id="miModal" class="modal">
+
+  <!-- Contenido de la ventana modal -->
+  <div class="contenidoModal">
+    <div class="encabezadoModal">
+      <span class="cerrar">&times;</span>
+      <p><span class="material-icons">block</span> Error en el texto</p>
+    </div>
+    <div class="cuerpoModal">
+      <h2>Has introducido algún carácter incorrecto.</h2>
+      <p>Sólo se admiten letras minúsculas sin acentos</p>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
