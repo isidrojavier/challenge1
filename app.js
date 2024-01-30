@@ -23,17 +23,17 @@ function encriptar(){
 function desencriptar(){
     //similar a la anterior, pero llamando a la función de desencriptación
     if (document.getElementById("texto1").value != ""){
-        if (comprobar2() == true){
-            document.getElementById("muneco").style.display = "none";
-            document.getElementById("info").style.display = "none";
-            document.getElementById("texto3").style.display = "block";
-            document.getElementById("btcopiar").style.display = "block";
-            desencriptado();
+        if (comprobar2() == false){
+            abrirventana();
+            document.getElementById("texto1").value = corregir();
         }
-        else {
-            console.log("hay caracteres preparar mensaje emergente");
-        }
-    }    
+        
+        document.getElementById("muneco").style.display = "none";
+        document.getElementById("info").style.display = "none";
+        document.getElementById("texto3").style.display = "block";
+        document.getElementById("btcopiar").style.display = "block";
+        desencriptado();
+    }
 }
 
 function corregir(){
