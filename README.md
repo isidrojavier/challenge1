@@ -7,3 +7,4 @@ cosas que considero mejoras:
 
 - Función olvidada de corrección automática de caracteres no válidos.
 - Borrado de textbox cuando hago focus.
+- Pendiente que funcione en Edge, da un error de: Error with Permissions-Policy header
