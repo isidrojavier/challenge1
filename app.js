@@ -2,21 +2,21 @@ function encriptar(){
     //compruebo que el texto del textarea esté con los caracteres que se me piden
     //en caso contrario saco un mensaje con una ventana flotante
     if (document.getElementById("texto1").value != ""){
-        if (comprobar2() == true){
-            //oculto la imagen y la información
-            //podía haber hecho que fueran dentro del textarea, pero me apetecía probar cosas
-            document.getElementById("muneco").style.display = "none";
-            document.getElementById("info").style.display = "none";
-            document.getElementById("texto3").style.display = "block";
-            document.getElementById("btcopiar").style.display = "block";
-
-            //llamo a la verdadera función de encriptado
-            encriptado();
-        }
-        else {
-            console.log("hay caracteres preparar mensaje emergente");
+        //si el resultado de comprobar2 es falso, hay caracteres no permitidos
+        if (comprobar2() == false){
+            //Mandamos un aviso y corregimos
             abrirventana();
+            document.getElementById("texto1").value = corregir();
         }
+        //oculto la imagen y la información
+        //podía haber hecho que fueran dentro del textarea, pero me apetecía probar cosas
+        document.getElementById("muneco").style.display = "none";
+        document.getElementById("info").style.display = "none";
+        document.getElementById("texto3").style.display = "block";
+        document.getElementById("btcopiar").style.display = "block";
+
+        //llamo a la verdadera función de encriptado
+        encriptado();
     }
 }
 
@@ -36,15 +36,32 @@ function desencriptar(){
     }    
 }
 
+function corregir(){
+    textito = document.getElementById("texto1").value;
+
+    console.log(textito);
+
+    //convertimos todas las letras mayúsculas a minúsculas
+    textito = textito.toLowerCase();
+    
+    //detectamos las tildes y símbolos como la ñ y los cambiamos a formato aceptado
+    textito = textito.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    
+    //eliminamos el resto de caracteres
+    textito = textito.replace(/[^a-zA-Z0-9 ]/g, '')
+
+    return textito;
+}
+
 function desencriptado(){
 //Esta forma me gusta más, primero habría que buscar la coincidencia de la palabra
 //Esto estaría más o menos resuelto y luego en un nuevo string ingresariamos todos
 //los caracteres anteriores y seguiríamos adelante
 
     /*// esta es la cadena donde buscaremos
-let cadena = "Este era un gato con los pies de trapo";
+let cadena = document.getElementById("texto1").value;
 // esta es la palabra a buscar
-let termino = "gato";
+let termino = "ufat";
 // para buscar la palabra hacemos
 let posicion = cadena.indexOf(termino);
 if (posicion !== -1)
